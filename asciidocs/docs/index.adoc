@@ -29,5 +29,32 @@ endif::backend-html5[]
 
 image::steering-commitee.png[]
 
+=== Slides erstellen
+
+* https://github.com/htl-leonding-college/asciidoctor-html-template[]
+
+image::use-github-template.png[]
+
+image::create-repo.png[]
+
+ https://github.com/education
+
+image::enable-gh-pages.png[]
+
+=== Asciidoctor Examples for Slides
+
+* https://github.com/htl-leonding-college/leocloud-intro-slides
+* https://github.com/htl-leonding-college/git-intro-slides
+* https://docs.asciidoctor.org/reveal.js-converter/latest/project/showcase/
+
+//--
+
+* Resources
+** https://www.pexels.com/de-de/
+** https://unsplash.com/de
+** https://undraw.co/
+
+
+
 
 
