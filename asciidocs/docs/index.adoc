@@ -13,6 +13,21 @@ icon:github-square[link=https://github.com/2324-4bhif-wmc/2324-4bhif-wmc-lecture
 icon:home[link=http://edufs.edu.htl-leonding.ac.at/~t.stuetz/hugo/2021/01/lecture-notes/]
 endif::backend-html5[]
 
-== 2024-09-xx
+== 2024-10-07
+
+* Projekte werden mit T-Shirt-Size geplant
+** S
+** M
+** L
+** XL
+
+* Steering Commitee
+** Management
+** Software-Architekten
+
+* Milestones vs Gate-Decisions
+
+image::steering-commitee.png[]
+
 
 
