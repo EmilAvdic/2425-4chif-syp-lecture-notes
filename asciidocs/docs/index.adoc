@@ -26,8 +26,9 @@ endif::backend-html5[]
 ** Software-Architekten
 
 * Milestones vs Gate-Decisions
+** Milestones sing keine Gate-Decisions
 
-image::steering-commitee.png[]
+image::steering-committee.png[]
 
 === Slides erstellen
 
