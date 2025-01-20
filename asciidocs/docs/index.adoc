@@ -76,6 +76,25 @@ Virtualisierung bezeichnet in der Informatik die Nachbildung eines Hard- oder So
 * https://www.youtube.com/watch?v=pg19Z8LL06w[^]
 
 
+== 2024-11-11
+
+=== Youtrack Github Integration
+
+
+== 2025-01-13 Aufsetzen einer vm
+
+== 2025-01-20 - Docker Compose
+
+=== Übung: docker-compose
+
+* Erstelle ein docker-compose.yaml File um folgendes System zu erstellen
+** nginx
+** quarkus-backend
+
+Im nginx wird eine website gehosted die per rest auf das quarkus-backend zugreift. Ein HTML-Formular wird angezeigt, welches einen Namen entgegennimmt und diesen an das quarkus-backend sendet. Das quarkus-backend gibt den Namen zurück und loggt ihn auf die Console.
+
+
+
 
 
 
