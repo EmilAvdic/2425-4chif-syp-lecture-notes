@@ -93,10 +93,17 @@ Virtualisierung bezeichnet in der Informatik die Nachbildung eines Hard- oder So
 
 Im nginx wird eine website gehosted die per rest auf das quarkus-backend zugreift. Ein HTML-Formular wird angezeigt, welches einen Namen entgegennimmt und diesen an das quarkus-backend sendet. Das quarkus-backend gibt den Namen zurück und loggt ihn auf die Console.
 
+== 2025-03-10 - Github Actions
 
+=== Übung: CI/CD
 
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R8_veQiYBjI?si=vsttNxZsOWXSnUfY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
 
+=== Github Actions Website
 
+Bei Fragen über Github Actions, auf dieser link:https://docs.github.com/en/actions/about-github-actions/understanding-github-actions[Website] nachlesen.
 
 
 
