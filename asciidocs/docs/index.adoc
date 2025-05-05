@@ -108,10 +108,79 @@ Bei Fragen über Github Actions, auf dieser link:https://docs.github.com/en/acti
 
 
 
+== 05-05-2025 - Mitschrift
 
+=== uber-jar
 
+Ein JAR-File, das alle Abhängigkeiten enthält, sowie ein Manifest XML, in dem die Klasse mit der main-Methode angegeben ist.
 
+=== dependency
 
+Das sind Libraries in dem Methoden drinnen sind, die wir für unser Projekt brauchen, zb. Jackson-Marshalling: konvertieren von java-objekten in json
 
+=== docker-compose
 
+verwendet zum orchestrieren von Containern, es läuft auf einem eigenem Dockernetzwerk, jeder Container hat eine eigene IP, (Frontend: 10.0.0.1, Backend: 10.0.0.2, Datenbank: 10.0.0.3). Sie greifen aufeinander zu mit ihrem Namen, den man in der .yaml vergeben hat. 
 
+=== Dockerfile
+
+Baut ein Docker-Image. wir versuchen so wenig als möglich mit eigenen Dockerfiles zu arbeiten, bei möglichkeit verwenden wir eine fertige File.
+
+=== Multi-stage-building
+
+Wenn in einer Dockerfile mehrere FROM sind, nennt man es Multistaged.
+
+* *RUN* mvn -B(es gibt keine Rückfragen) -Dskiptests (bei -D kommt danach immer ein Parameter mit einem Befehl) package ( es wird ein JAR-File erstellt)
+
+* *FROM* ladet ein OS oder JAVA runter. mit "as builder" kann man auf "builder" zugreifen.
+
+* *WORKDIR* setzt ein Verzeichnis als Arbeitsverzeichnis
+
+* *COPY* --from=builder /usr/local/src/vehicle/target/vehicle-*-runner.jar /opt/backend.jar. Dieser Befehl nimmt alle Versionen und benennt es in backend.jar um. 
+
+mit java -jar started man eine JAR-File.
+
+=== DEV_SERVICES
+
+startet eigene temporäre testfälle. Auf link:https://testcontainers.com/[Testcontainers] kann man sich dafür container holen. 
+
+=== application.properties
+
+* *prod-Mode*: Verwendet die gebaute JAR-Datei (z. B. uber-jar oder native).Keine Hot-Reloads oder Dev-Tools.
+
+* *test-Mode*: Startet die Anwendung in einer isolierten Umgebung für Unit- und Integrationstests. Nutzt Testdaten und test-spezifische Dienste.
+
+* *dev-Mode*: Quarkus wird mit Maven gestartet (mvn quarkus:dev). Hot-Reload: Änderungen im Code oder in application.properties wirken sofort. Zusätzliche Dev-Tools und Fehlermeldungen sind aktiviert.
+
+wird mit %mode vor den Statements in der application.properties hinzugefügt. z.B."%prod.quarkus.package.jar.type=uber-jar"
+
+=== dockerignore
+
+wir wollen so wenig wie möglich in den build context kopieren, deshalb kann man verhindern das gewisse dateien mitkopiert werden. Beispiel: (" * " , "!** / *.java") es werden nur das src-Verzeichnis und die pom.xml in den docker-context kopiert.
+
+" * " : Alle files werden ausgewählt. "!** / *.java": Es werden alle nicht .java Files ignoriert. 
+
+* docker build: greift auf das Dockerfile zu.
+
+<scope> in pom.xml: Gültigkeitsbereich, zb <scope>test<scope> nur in test mode verwendbar. Der Standartwert ist <scope>compile<scope>, wird in jedes Jar hineinkompiliert. 
+
+=== Versionierung
+
+* *semantische Versionierung*: x.y.z. + 
+*Major*: neue Funktionalitäten die nicht mehr kompatibel mit der vorherigen Version ist. Man muss Clients wahrscheinlich updaten. *Minor*: neue Funktionalitäten, bei denen die kompatibilität nicht gestört ist. *Patch*: kleine Bug fixes. 
+
+* *Calver*: Versionierung mit dem Datum. z.b. 2024.10.07.1 (Jahr.Monat.Tag.Version). Auf link:https://calver.org/[Calver] zu finden
+
+=== Adminer
+
+Eine kleine UI für die Datenbank. 
+
+=== Bind-Mount vs Volume
+
+* *bind-mount*: Bindet einen bestimmten Pfad vom Host-Dateisystem in den Container. Pfad wird manuell festgelegt.
+
+* *volume*: Docker-managed Speicher, der unabhängig vom Host-Dateisystem verwaltet wird. Wird über Docker CLI oder Compose definiert.
+
+=== YAML
+
+* *export bei environment variables*: wichtig für die verwendbarkeit für nachfolgende kommandos. mit ".env" kann man nachschauen welche variablen man hat. 
